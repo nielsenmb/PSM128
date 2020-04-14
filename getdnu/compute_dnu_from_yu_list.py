@@ -4,12 +4,13 @@ import pandas as pd
 from astropy.io import ascii
 import numpy as np
 
-cache_dir = '/home/nielsemb/work/Bluebear_data/data/'
 
-pdata = pd.read_csv('prior_data.csv')
+cache_dir = '/rds/projects/b/ballwh-tess-yield/data'
 
-yu1 = ascii.read('table1.dat', format='cds', readme="ReadMe")
-yu2 = ascii.read('table2.dat', format='cds',readme="ReadMe")
+pdata = pd.read_csv('/rds/homes/n/nielsemb/repos/PSM128/getdnu/data/prior_data.csv')
+
+yu1 = ascii.read('/rds/homes/n/nielsemb/repos/PSM128/getdnu/data/table1.dat', format='cds', readme="ReadMe")
+yu2 = ascii.read('/rds/homes/n/nielsemb/repos/PSM128/getdnu/data/table2.dat', format='cds',readme="ReadMe")
 
 kics = ['KIC'+str(x) for x in yu1['KIC']]
 numaxs = [(x, y) for x,y in yu1[['numax', 'e_numax']]]
@@ -17,7 +18,7 @@ teffs = [(x, y) for x,y in yu2[['Teff', 'e_Teff']]]
 
 dnus = np.zeros(len(kics))-np.inf
 
-N = 1 #len(dnus)
+N = len(dnus)
 
 for i in range(N):
     search = perform_search(kics[i], download_dir = cache_dir)
