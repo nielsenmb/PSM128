@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --ntasks 1
 #SBATCH --nodes 1
-#SBATCH --time 48:0:0
-#SBATCH --qos bbdefault
+#SBATCH --time 9:0
+#SBATCH --qos bbshort
 #SBATCH --mail-type NONE
 #SBATCH --job-name=getdnu
 #SBATCH --account=nielsemb-plato-peakbagging
