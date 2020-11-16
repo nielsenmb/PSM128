@@ -1,0 +1,3 @@
+[submodule "Detection"]
+	path = Detection
+	url = https://github.com/nielsenmb/Detection.git
